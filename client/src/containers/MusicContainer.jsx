@@ -10,8 +10,10 @@ var MusicContainer = React.createClass({
 
   render: function (){
     return(
-    <div>
+    <div className ='music-container'>
     <h3> Music Information </h3>
+    <SongDetail/> 
+
     </div>
     )
   }

@@ -19770,12 +19770,13 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'music-container' },
 	      React.createElement(
 	        'h3',
 	        null,
 	        ' Music Information '
-	      )
+	      ),
+	      React.createElement(SongDetail, null)
 	    );
 	  }
 	
@@ -19793,12 +19794,17 @@
 	
 	var SongDetail = function SongDetail(props) {
 	  return React.createElement(
-	    'h1',
-	    null,
-	    '"Hello"',
-	    props.name
+	    'div',
+	    { className: 'song-details' },
+	    React.createElement(
+	      'h1',
+	      null,
+	      '"Hello"',
+	      props.name
+	    )
 	  );
 	};
+	module.exports = SongDetail;
 
 /***/ }
 /******/ ]);
