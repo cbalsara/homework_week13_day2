@@ -19757,6 +19757,7 @@
 	
 	var React = __webpack_require__(1);
 	var SongDetail = __webpack_require__(160);
+	var SongTable = __webpack_require__(161);
 	
 	var MusicContainer = React.createClass({
 	  displayName: 'MusicContainer',
@@ -19783,16 +19784,18 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { className: 'music-container' },
+	      {
+	
+	        className: 'music-container' },
 	      React.createElement(
 	        'h3',
 	        null,
 	        ' Music Information '
 	      ),
-	      React.createElement(SongDetail, null)
+	      React.createElement(SongDetail, { song: this.state.musicInfo }),
+	      React.createElement(SongTable, null)
 	    );
 	  }
-	
 	});
 	
 	module.exports = MusicContainer;
@@ -19808,16 +19811,42 @@
 	var SongDetail = function SongDetail(props) {
 	  return React.createElement(
 	    'div',
-	    { className: 'song-details' },
+	    {
+	
+	      className: 'song-details' },
 	    React.createElement(
 	      'h1',
 	      null,
-	      '"Hello This is a test!"',
-	      props.name
+	      '"Hello This is a test!"'
 	    )
 	  );
 	};
 	module.exports = SongDetail;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(1);
+	var SongDetail = __webpack_require__(160);
+	
+	var SongTable = function SongTable(props) {
+	  return React.createElement(
+	    'div',
+	    {
+	
+	      className: 'song-table' },
+	    React.createElement(
+	      'h1',
+	      null,
+	      ' this is the table for the songs'
+	    )
+	  );
+	};
+	
+	module.exports = SongTable;
 
 /***/ }
 /******/ ]);

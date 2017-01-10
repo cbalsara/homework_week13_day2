@@ -1,5 +1,6 @@
 var React = require('react');
 var SongDetail = require('../components/SongDetails');
+var SongTable = require('../components/SongTable');
 
 var MusicContainer = React.createClass({
   getInitialState: function() {
@@ -23,16 +24,17 @@ var MusicContainer = React.createClass({
 
   render: function (){
     return(
-    <div className ='music-container'>
+    <div 
+
+    className ='music-container'>
     <h3> Music Information </h3>
-    <SongDetail/> 
+    <SongDetail song ={this.state.musicInfo} /> 
+    <SongTable />
 
     </div>
     )
   }
-
-
-});
+})
 
 module.exports = MusicContainer;
 
