@@ -19767,6 +19767,19 @@
 	    };
 	  },
 	
+	  componentDidMount: function componentDidMount() {
+	    var url = "https://itunes.apple.com/gb/rss/topsongs/limit=20/json";
+	    var request = new XMLHttpRequest();
+	    request.open('GET', url);
+	    request.onload = function () {
+	      var data = JSON.parse(request.responseText);
+	      this.setState({
+	        musicInfo: data
+	      });
+	    }.bind(this);
+	    request.send();
+	  },
+	
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -19799,7 +19812,7 @@
 	    React.createElement(
 	      'h1',
 	      null,
-	      '"Hello"',
+	      '"Hello This is a test!"',
 	      props.name
 	    )
 	  );
