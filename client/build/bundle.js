@@ -19822,9 +19822,9 @@
 	    React.createElement(
 	      'h3',
 	      null,
-	      props.artist
+	      props.a
 	    ),
-	    React.createElement('img', { src: props.image })
+	    React.createElement('img', { src: props.i })
 	  );
 	};
 	module.exports = SongDetail;
@@ -19846,8 +19846,8 @@
 	      return React.createElement(SongDetails, {
 	        key: index,
 	        title: music["im:name"].label,
-	        artist: music['im:artist'].label,
-	        image: music['im:image'][2].label
+	        a: music['im:artist'].label,
+	        i: music['im:image'][2].label
 	      });
 	    })
 	  );

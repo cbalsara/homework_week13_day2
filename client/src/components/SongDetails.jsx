@@ -8,8 +8,8 @@ var SongDetail = function(props){
   className='song-details'>
   
   <h3>{props.title}</h3>
-  <h3>{props.artist}</h3>
-  <img src={props.image}/>
+  <h3>{props.a}</h3>
+  <img src={props.i}/>
   </div>
   );
 };

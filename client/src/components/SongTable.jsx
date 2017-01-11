@@ -9,8 +9,8 @@ var SongTable = function(props){
             <SongDetails
             key={index} 
             title={music["im:name"].label} 
-            artist={music['im:artist'].label} 
-            image={music['im:image'][2].label}
+            a={music['im:artist'].label} 
+            i={music['im:image'][2].label}
             />
           );
         })}
