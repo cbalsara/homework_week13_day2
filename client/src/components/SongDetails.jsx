@@ -6,12 +6,10 @@ var SongDetail = function(props){
   <div 
 
   className='song-details'>
-  <h1>"Hello This is a test!"</h1>
-  <p>Title: {props.title}</p>
-  <p>Artist: {props.artist}</p>
-  <p>Image: {props.image}</p>
   
-
+  <h3>{props.title}</h3>
+  <h3>{props.artist}</h3>
+  <img src={props.image}/>
   </div>
   );
 };

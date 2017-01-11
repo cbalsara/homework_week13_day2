@@ -5,7 +5,7 @@ var MusicContainer = require('./containers/MusicContainer.jsx');
 
 window.onload = function(){
   ReactDOM.render(
-    <MusicContainer/>,
+    <MusicContainer />,
     document.getElementById('app')
   );
 }

@@ -19773,10 +19773,10 @@
 	    var request = new XMLHttpRequest();
 	    request.open('GET', url);
 	    request.onload = function () {
-	      var data = JSON.parse(request.responseText)['feed']['entry'];
+	      var data = JSON.parse(request.responseText);
 	      console.log(data);
 	      this.setState({
-	        musicInfo: data
+	        musicInfo: data.feed.entry
 	      });
 	    }.bind(this);
 	    request.send();
@@ -19793,8 +19793,7 @@
 	        null,
 	        ' List Of Albums'
 	      ),
-	      React.createElement(SongTable, { musicInfo: this.state.musicInfo }),
-	      React.createElement(SongDetail, { musicInfo: this.props.songs })
+	      React.createElement(SongTable, { musicInfo: this.state.musicInfo })
 	    );
 	  }
 	});
@@ -19816,28 +19815,16 @@
 	
 	      className: 'song-details' },
 	    React.createElement(
-	      'h1',
+	      'h3',
 	      null,
-	      '"Hello This is a test!"'
-	    ),
-	    React.createElement(
-	      'p',
-	      null,
-	      'Title: ',
 	      props.title
 	    ),
 	    React.createElement(
-	      'p',
+	      'h3',
 	      null,
-	      'Artist: ',
 	      props.artist
 	    ),
-	    React.createElement(
-	      'p',
-	      null,
-	      'Image: ',
-	      props.image
-	    )
+	    React.createElement('img', { src: props.image })
 	  );
 	};
 	module.exports = SongDetail;
@@ -19849,32 +19836,22 @@
 	'use strict';
 	
 	var React = __webpack_require__(1);
-	var SongDetail = __webpack_require__(160);
+	var SongDetails = __webpack_require__(160);
 	
-	var SongTable = React.createClass({
-	  displayName: 'SongTable',
-	
-	  getInitialState: function getInitialState() {
-	    return { selectedIndex: undefined };
-	  },
-	
-	  render: function render() {
-	    var songsList = this.props.musicInfo.map(function (music, index) {
-	
-	      console.log(music);
-	
-	      return React.createElement('musicInfo', { key: index, title: music["im:name"]["label"], artist: music['im:artist']['label'], picture: music['im:image']['label'] });
-	    });
-	    return React.createElement(
-	      'div',
-	      {
-	        id: 'musicInfo'
-	      },
-	      songsList
-	    );
-	  }
-	});
-	
+	var SongTable = function SongTable(props) {
+	  return React.createElement(
+	    'div',
+	    null,
+	    props.musicInfo.map(function (music, index) {
+	      return React.createElement(SongDetails, {
+	        key: index,
+	        title: music["im:name"].label,
+	        artist: music['im:artist'].label,
+	        image: music['im:image'].label
+	      });
+	    })
+	  );
+	};
 	module.exports = SongTable;
 
 /***/ }
