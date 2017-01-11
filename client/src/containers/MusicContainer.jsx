@@ -14,13 +14,17 @@ var MusicContainer = React.createClass({
     var request = new XMLHttpRequest();
     request.open('GET', url);
     request.onload = function(){
-      var data = JSON.parse(request.responseText);
+      var data = JSON.parse(request.responseText).feed.entry;
       console.log(data);
       this.setState({
-        musicInfo: data.feed.entry
+        musicInfo: data
       });
     }.bind(this);
     request.send();
+  },
+
+  handleClick: function(a){
+    a.preventDefault();
   },
 
   render: function (){
@@ -29,7 +33,11 @@ var MusicContainer = React.createClass({
 
     className ='music-container'>
     <h2> List Of Albums</h2>
-    <SongTable musicInfo={this.state.musicInfo} />
+    <SongTable 
+    musicInfo={this.state.musicInfo} 
+    handleClick={this.handleClick}
+    />
+
    
     </div>
     );

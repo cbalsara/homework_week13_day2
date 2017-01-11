@@ -19773,13 +19773,17 @@
 	    var request = new XMLHttpRequest();
 	    request.open('GET', url);
 	    request.onload = function () {
-	      var data = JSON.parse(request.responseText);
+	      var data = JSON.parse(request.responseText).feed.entry;
 	      console.log(data);
 	      this.setState({
-	        musicInfo: data.feed.entry
+	        musicInfo: data
 	      });
 	    }.bind(this);
 	    request.send();
+	  },
+	
+	  handleClick: function handleClick(a) {
+	    a.preventDefault();
 	  },
 	
 	  render: function render() {
@@ -19793,7 +19797,10 @@
 	        null,
 	        ' List Of Albums'
 	      ),
-	      React.createElement(SongTable, { musicInfo: this.state.musicInfo })
+	      React.createElement(SongTable, {
+	        musicInfo: this.state.musicInfo,
+	        handleClick: this.handleClick
+	      })
 	    );
 	  }
 	});
@@ -19811,20 +19818,22 @@
 	var SongDetail = function SongDetail(props) {
 	  return React.createElement(
 	    'div',
-	    {
-	
-	      className: 'song-details' },
+	    { className: 'song-details' },
 	    React.createElement(
 	      'h3',
 	      null,
-	      props.title
+	      props.theTitle
 	    ),
 	    React.createElement(
 	      'h3',
 	      null,
-	      props.a
+	      props.performer
 	    ),
-	    React.createElement('img', { src: props.i })
+	    React.createElement(
+	      'a',
+	      { onClick: props.handleClick, href: props.itunesLink },
+	      React.createElement('img', { src: props.randomName })
+	    )
 	  );
 	};
 	module.exports = SongDetail;
@@ -19845,9 +19854,10 @@
 	    props.musicInfo.map(function (music, index) {
 	      return React.createElement(SongDetails, {
 	        key: index,
-	        title: music["im:name"].label,
-	        a: music['im:artist'].label,
-	        i: music['im:image'][2].label
+	        theTitle: music["im:name"].label,
+	        perfomer: music['im:artist'].label,
+	        randomName: music['im:image'][2].label,
+	        itunesLink: music['link'][0].attributes.href
 	      });
 	    })
 	  );

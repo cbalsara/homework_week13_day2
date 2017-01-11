@@ -8,9 +8,10 @@ var SongTable = function(props){
         return(
             <SongDetails
             key={index} 
-            title={music["im:name"].label} 
-            a={music['im:artist'].label} 
-            i={music['im:image'][2].label}
+            theTitle={music["im:name"].label} 
+            perfomer={music['im:artist'].label} 
+            randomName={music['im:image'][2].label}
+            itunesLink={music['link'][0].attributes.href}
             />
           );
         })}
@@ -18,3 +19,4 @@ var SongTable = function(props){
   );
 };
 module.exports = SongTable;
+
