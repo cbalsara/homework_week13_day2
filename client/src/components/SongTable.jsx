@@ -1,15 +1,31 @@
 var React = require('react');
 var SongDetail = require('./SongDetails');
 
-var SongTable = function(props){
-return(
-  <div
+var SongTable = React.createClass({
+  getInitialState: function(){
+    return{ selectedIndex: undefined };
+  },
 
-  className='song-table'>
-  <h1> this is the table for the songs</h1>
+  render: function (){
+    var songsList = this.props.musicInfo.map(function(music, index){
 
-  </div>
-  )
-}
+      console.log(music);
+
+      return (
+        <musicInfo key={index} title={music["im:name"]["label"]} artist={music['im:artist']['label']} picture={music['im:image']['label']}/>
+        )
+    });
+  return (
+    <div 
+     id="musicInfo"
+    >
+      {songsList}
+    </div>
+    );
+  }
+});
+
+
+  
 
 module.exports = SongTable;
