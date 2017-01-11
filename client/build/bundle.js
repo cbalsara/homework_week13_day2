@@ -19847,7 +19847,7 @@
 	        key: index,
 	        title: music["im:name"].label,
 	        artist: music['im:artist'].label,
-	        image: music['im:image'].label
+	        image: music['im:image'][2].label
 	      });
 	    })
 	  );
