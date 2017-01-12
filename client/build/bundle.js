@@ -19825,7 +19825,7 @@
 	      props.theTitle
 	    ),
 	    React.createElement(
-	      'h3',
+	      'p',
 	      null,
 	      props.performer
 	    ),
@@ -19855,7 +19855,7 @@
 	      return React.createElement(SongDetails, {
 	        key: index,
 	        theTitle: music["im:name"].label,
-	        perfomer: music['im:artist'].label,
+	        performer: music['im:artist'].label,
 	        randomName: music['im:image'][2].label,
 	        itunesLink: music['link'][0].attributes.href
 	      });
