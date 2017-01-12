@@ -5,7 +5,7 @@ var SongDetail = function(props){
   return (
     <div className='song-details'>
       <h3>{props.theTitle}</h3>
-      <p>{props.performer}</p>
+      <h4>{props.performer}</h4>
       <a onClick={props.handleClick} href={props.itunesLink}>
         <img src={props.randomName}/>
       </a>

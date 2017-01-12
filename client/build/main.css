@@ -28,3 +28,7 @@ select {
   max-width: 70%;
   vertical-align: top;
 }
+
+.song-details{
+  border-bottom: 3px solid black; }
+}

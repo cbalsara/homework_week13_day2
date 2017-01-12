@@ -19795,7 +19795,7 @@
 	      React.createElement(
 	        'h2',
 	        null,
-	        ' List Of Albums'
+	        ' List Of No 1 Hits!'
 	      ),
 	      React.createElement(SongTable, {
 	        musicInfo: this.state.musicInfo,
@@ -19825,7 +19825,7 @@
 	      props.theTitle
 	    ),
 	    React.createElement(
-	      'p',
+	      'h4',
 	      null,
 	      props.performer
 	    ),

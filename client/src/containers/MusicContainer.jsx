@@ -32,7 +32,7 @@ var MusicContainer = React.createClass({
     <div 
 
     className ='music-container'>
-    <h2> List Of Albums</h2>
+    <h2> List Of No 1 Hits!</h2>
     <SongTable 
     musicInfo={this.state.musicInfo} 
     handleClick={this.handleClick}
